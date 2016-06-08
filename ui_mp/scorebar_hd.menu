@@ -1,0 +1,99 @@
+#include "ui/menudef.h"
+#include "ui_mp/common_macro.inc"
+#include "ui_mp/menustyle.inc"
+#include "ui/choices_setup_common.menu"
+#include "ui_mp/popupstyle.inc"
+#include "ui/choices_setup_popmenu.menu"
+#define XBorder 44
+{
+	menuDef
+	{
+		name "scorebar_hd"
+		rect 0 0 640 480 8 8
+		visible 1
+		visible when ( ( ( ! ( ui_active( ) ) ) && ( ! ( flashbanged( ) ) ) && ( ! ( ( weaponname( ) == "killstreak_ac130_mp" ) || ( weaponname( ) == "killstreak_helicopter_minigun_mp" ) || ( weaponname( ) == "killstreak_predator_missile_mp" ) || ( ( weaponname( ) == "ac130_105mm_mp" ) || ( weaponname( ) == "ac130_40mm_mp" ) || ( weaponname( ) == "ac130_25mm_mp" ) ) || ( adsjavelin( ) ) || ( weaponname( ) == "heli_remote_mp" ) || missilecam( ) ) ) && ( !isempjammed( ) ) && ( ! ( dvarint( "scr_gameended" ) ) ) ) && ! ( selecting_location( ) ) && ( ! ( spectatingfree( ) ) ) )
+		forecolor 1 1 1 1
+		itemDef
+		{
+			rect			-XBorder 45 0 0 HORIZONTAL_ALIGN_LEFT VERTICAL_ALIGN_BOTTOM
+			textscale       1.4
+			textstyle 		0
+			forecolor 		0.5 0 0 1
+			glowcolor 		0 0 0 0
+			textfont        7
+			exp text        (dvarInt( ui_wave ))
+			visible 		1
+			visible when	(1)
+			decoration
+		}
+		itemDef
+		{
+			rect 			-XBorder 35 0 0 HORIZONTAL_ALIGN_LEFT VERTICAL_ALIGN_BOTTOM
+			textscale       0.4
+			textstyle 		6
+			textfont        9
+			forecolor 		(200 / 255) (136 / 255) (64 / 255) 1
+			glowcolor 		0 0 0 0
+			//exp text        ("Zombies: " + dvarInt( ui_zombies ))
+			visible 		1
+			visible when	(1)
+			decoration
+		}
+		itemDef
+		{
+			rect 		 	XBorder 325 -30 0 3 HORIZONTAL_ALIGN_LEFT VERTICAL_ALIGN_BOTTOM
+			textscale       0.4
+			textstyle 		6
+			textfont        9
+			textAlign 		6
+			forecolor 		2 2 2 2
+			glowcolor 		0 0 0 0
+			exp text	 	("^3$^7: " + dvarInt( ui_money ) )
+			visible 		1
+			visible when	(1)
+			decoration
+		}
+		itemDef
+		{
+			rect 		 	XBorder 345 -30 0 3 HORIZONTAL_ALIGN_LEFT VERTICAL_ALIGN_BOTTOM
+			textscale       0.3
+			textstyle 		6
+			textfont        7
+			textAlign 		6
+			forecolor 		2 2 2 2
+			glowcolor 		0 0 0 0
+			exp text	 	("^5Points^7: " + dvarInt( ui_bonus ) )
+			visible 		1
+			visible when	(1)
+			decoration
+		}
+		itemDef
+		{
+			rect 		 	XBorder -40 15 0 3 VERTICAL_ALIGN_TOP
+			textscale       0.4
+			textstyle 		6
+			textfont        5
+			textAlign 		6
+			forecolor 		1 0 0 1
+			glowcolor 		0 0 0 0
+			exp text	 	("Power Not Activated")
+			visible 		1
+			visible when	( !dvarbool( ui_power ) )
+			decoration
+		}
+		itemDef
+		{
+			rect 		 	XBorder -40 15 0 3 VERTICAL_ALIGN_TOP
+			textscale       0.4
+			textstyle 		6
+			textfont        5
+			textAlign 		6
+			forecolor 		0 1 0 1
+			glowcolor 		0 0 0 0
+			exp text	 	("Power Activated")
+			visible 		1
+			visible when	( dvarbool( ui_power ) )
+			decoration
+		}
+	}
+}

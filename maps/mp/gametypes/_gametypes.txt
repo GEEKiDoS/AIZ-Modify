@@ -1,0 +1,16 @@
+ss
+dom
+arcade
+koth
+aiz
+war
+aiz_h
+sab
+aiz_v
+dm
+exo
+sd
+grief
+oneflag
+turned
+ctf
